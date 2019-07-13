@@ -2,7 +2,7 @@ class Application
 
   @@items = ["Apples","Carrots","Pears"]
   @@cart = []
-  
+
   def call(env)
     resp = Rack::Response.new
     req = Rack::Request.new(env)
@@ -19,7 +19,7 @@ class Application
           resp.write "#{i}\n"
         end
       end
-      
+
     elsif req.path.match(/add/)
       add_item = req.params["item"]
       resp.write handle_add(add_item)
